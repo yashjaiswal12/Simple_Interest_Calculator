@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<HTML>
+    <HEAD>
+        <title>Simple Interest Calculator</title>
+        
+		<script>
+			function updateRate()                                //This function updates the value of rate. i.e. range;
+			{
+				var rateval = document.getElementById("rate").value;
+				document.getElementById("rate_val").innerText=rateval;
+			}
+
+			function compute(){                                                //This function calculate the simple interest & print the result in result. i.e.<P>;
+				var principal = document.getElementById("principal").value;
+				var rate = document.getElementById("rate").value;
+				var years = document.getElementById("years").value;
+				var interest = (principal * years * rate) /100;
+				
+				if(principal=="" || principal<0){
+					alert("Required field.."+"Principal amount is required!! And it should not be less than 0.");
+					exit(0);
+				}
+				
+				result.innerHTML = "<mark>The interest is </mark> "+ interest;
+			}
+		</script>
+		
+        <link rel="Stylesheet" href="style.css">
+    </HEAD>
+
+    <BODY>
+        <h1>SIMPLE INTEREST CALCULATOR</h1>
+        <div class="maindiv">
+            <label for="Amount">Amount:-</label>
+            <input type="number" id="principal" required><br/>
+
+            <label for="Rate">Rate:-</label>
+			<span id="rate_val">10.25%</span>
+            <input type="range" onchange="updateRate();" id="rate" min="1" max="20" step="0.25" value="default-value"><br/>
+
+            <label for="Nyears">No. of years:-</label>
+            <select id="years">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select></br>
+
+            <button onclick="compute()" id="compute1">Compute Interest</button>
+            <p id="result">
+
+            </p>
+			<p id="result1">
+
+            </p>
+
+            <footer>
+                &#169; This Calculator belongs to Yash.
+            </footer>
+        </div>
+    </BODY>
+</HTML>
